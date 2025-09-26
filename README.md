@@ -5,7 +5,10 @@
 ### Created by Simeon Dimitrov, Samuel Mouradian, Arvind Pagidi, and Aidan Swan
 
 <div>
-    COPYRIGHT NOTICE: This is a repository created for Computer Science 425: Software Engineering, which is provided by the University of Nevada, Reno. Any replication of this repository's work without permission is prohibited and discouraged. This repository is overseen by Dr. David Feil-Seifer and Dr. Vinh Le, the course professors.
+    COPYRIGHT NOTICE:
+        <div style = "padding-left: 50px">
+            This is a repository created for Computer Science 425: Software Engineering, which is provided by the University of Nevada, Reno. Any replication of this repository's work without permission is prohibited and discouraged. This repository is overseen by Dr. David Feil-Seifer and Dr. Vinh Le, the course professors.
+        </div>
 </div>
 <br>
 <div">

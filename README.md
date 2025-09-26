@@ -4,11 +4,11 @@
 
 ### Created by Simeon Dimitrov, Samuel Mouradian, Arvind Pagidi, and Aidan Swan
 
-<div style = "background-color: #FCFC00; padding: 10px; border-radius: 5px; color: #000000">
+<div style = "background-color: yellow; padding: 10px; border-radius: 5px; color: black">
     COPYRIGHT NOTICE: This is a repository created for Computer Science 425: Software Engineering, which is provided by the University of Nevada, Reno. Any replication of this repository's work without permission is prohibited and discouraged. This repository is overseen by Dr. David Feil-Seifer and Dr. Vinh Le, the course professors.
 </div>
 <br>
-<div style = "background-color: #008000; padding: 10px; border-radius: 5px; color: #FFFFFF">
+<div style = "background-color: green; padding: 10px; border-radius: 5px; color: white">
     REPOSITORY UPDATES AS OF 09.26.2025:
     <ol style = "padding-left: 50px">
         <li>Created GitHub repository</li>
@@ -17,7 +17,7 @@
     </ol>
 </div>
 <br>
-<div style = "background-color: #A00000; padding: 10px; border-radius: 5px; color: #FFFFFF">
+<div style = "background-color: red; padding: 10px; border-radius: 5px; color: white">
     UPCOMING DELIVERABLES:
     <ol style = "padding-left: 50px">
         <li>Finalize <b>PROJECT IDEA</b> by 09.28.2025</li>

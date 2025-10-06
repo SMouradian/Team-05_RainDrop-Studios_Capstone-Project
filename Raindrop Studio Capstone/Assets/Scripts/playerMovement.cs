@@ -5,9 +5,13 @@ using UnityEngine.TextCore.Text;
 public class playerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12f;
+    private float speed = 12f;
+    public float walkspeed;
+    public float sprintspeed;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -32,7 +36,7 @@ public class playerMovement : MonoBehaviour
             move.Normalize();
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -42,5 +46,33 @@ public class playerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        stateHandler();
+    }
+
+
+    public MovementState state; public enum MovementState
+    {
+        walking,
+        sprinting,
+        air
+    }
+
+    private void stateHandler()
+    {
+        if (isGrounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            speed = sprintspeed;
+        }
+        else if (isGrounded)
+        {
+            state = MovementState.walking;
+            speed = walkspeed;
+        }
+        else
+        {
+            state = MovementState.air;
+        }
     }
 }

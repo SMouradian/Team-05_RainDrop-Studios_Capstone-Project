@@ -1,6 +1,6 @@
 # Team-05_CS-425
 
-## RainDrop Studios presents: <i>[Video Game Title Here]</i>
+## RainDrop Studios presents: <i>[Mōri]</i>
 
 ### Created by Simeon Dimitrov, Samuel Mouradian, Arvind Pagidi, and Aidan Swan
 
@@ -25,5 +25,5 @@
     <ol style = "padding-left: 50px">
         <li>Finalize <b>PROJECT IDEA</b> by [09.28.2025]</li>
         <li>Create <b>PROJECT PITCH</b> presentation by [10.05.2025]</li>
-        <li>Create interactive <b>GAME MENU</b> as a project demo by [10.05.2025]</li>
+        <li>Create simple <b>Movement Showcase</b> as a project demo by [10.05.2025]</li>
 </div>

@@ -9,6 +9,7 @@ public class footsteps : MonoBehaviour
     public float walkPitch = 1f;
     public float runPitch = 1.5f;
     public playerMovement player;
+   
     
 
     void Update()

@@ -8,4 +8,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+<<<<<<< Updated upstream
+=======
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting Game...");
+    }
+
+>>>>>>> Stashed changes
 }

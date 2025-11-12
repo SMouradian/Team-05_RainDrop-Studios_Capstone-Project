@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 1623225822}
   - component: {fileID: 1623225823}
   - component: {fileID: 1623225824}
+  - component: {fileID: 1623225825}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1419,6 +1420,19 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 1231071163}
   state: 0
+--- !u!114 &1623225825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623225821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9178d279fabcb7c40a9a7876a1979366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
 --- !u!4 &1974025524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8081146070430609275, guid: 6cfd0386d9fbf1a43b38081cafee7adc,

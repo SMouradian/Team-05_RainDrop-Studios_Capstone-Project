@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     public GameObject Katana;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
+    public bool isAttacking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +30,7 @@ public class WeaponController : MonoBehaviour
 
     public void KatanaAttack()
     {
+        isAttacking = true;
         CanAttack = false;
         Animator anim = Katana.GetComponent<Animator>();
         anim.SetTrigger("Attack");
@@ -37,8 +39,14 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator ResetAttackCooldown()
     {
+        StartCoroutine(ResetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
     }
 
+    IEnumerator ResetAttackBool()
+    {
+        yield return new WaitForSeconds(1.0f);
+        isAttacking = false;
+    }
 }

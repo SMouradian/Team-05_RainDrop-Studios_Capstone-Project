@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -7,6 +8,7 @@ public class WeaponController : MonoBehaviour
     public GameObject Katana;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
+    public bool IsAttacking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +31,7 @@ public class WeaponController : MonoBehaviour
 
     public void KatanaAttack()
     {
+        IsAttacking = true;
         CanAttack = false;
         Animator anim = Katana.GetComponent<Animator>();
         anim.SetTrigger("Attack");
@@ -37,6 +40,13 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator ResetAttackCooldown()
     {
+        yield return new WaitForSeconds(AttackCooldown);
+        CanAttack = true;
+    }
+
+    IEnumerator ResetAttackBool()
+    {
+        StartCoroutine(ResetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
     }

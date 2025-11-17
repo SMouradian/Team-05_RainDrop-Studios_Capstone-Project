@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour
             hostileAI.enabled = false;
             navMeshAgent.enabled = false;
             rb.constraints = RigidbodyConstraints.None;
+            rb.AddForce((-transform.forward + Vector3.up) * flyForce, ForceMode.Impulse);
+            rb.AddTorque(Vector3.right * 10f, ForceMode.Impulse);
             Invoke("StopCameraShake", 0.3f);
             Invoke("DestroyEnemy", 10f);
         }

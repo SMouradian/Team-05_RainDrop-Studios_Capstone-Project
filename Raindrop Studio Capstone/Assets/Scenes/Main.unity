@@ -19502,6 +19502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollisionDetection
   wp: {fileID: 1974025526}
   HitParticle: {fileID: 0}
+  damageAmount: 25
 --- !u!4 &1426972949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7438994113513996944, guid: 6cfd0386d9fbf1a43b38081cafee7adc,
@@ -27175,6 +27176,21 @@ PrefabInstance:
       propertyPath: CameraShake
       value: 
       objectReference: {fileID: 183134144}
+    - target: {fileID: 3406229999931775100, guid: 0b170bfbdfc16124fb08474e56f4fb8d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406229999931775100, guid: 0b170bfbdfc16124fb08474e56f4fb8d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953244372270188622, guid: 0b170bfbdfc16124fb08474e56f4fb8d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5184437417786349595, guid: 0b170bfbdfc16124fb08474e56f4fb8d,
         type: 3}
       propertyPath: playerTransform

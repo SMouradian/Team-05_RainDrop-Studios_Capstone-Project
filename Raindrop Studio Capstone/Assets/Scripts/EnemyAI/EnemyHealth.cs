@@ -70,6 +70,11 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        if (healthBar != null)
+        {
+            healthBar.FadeOutAndDestroy();
+        }
+
         if (PS != null)
         {
             PS.Play();

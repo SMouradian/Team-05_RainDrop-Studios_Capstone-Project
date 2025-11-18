@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dd181f11685bef542ab77ad0ef616da4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271606
+  packageName: 3D Toon Shader, Grass Shader, URP
+  packageVersion: 1.1
+  assetPath: Assets/3D Toon Shader, Grass Shader, URP/Shaders/_InvisibleShader/InvisibleShader.mat
+  uploadId: 673517

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 18dc0cd2c080841dea60987a38ce93fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271606
+  packageName: 3D Toon Shader, Grass Shader, URP
+  packageVersion: 1.1
+  assetPath: Assets/3D Toon Shader, Grass Shader, URP/UniversalRenderPipelineGlobalSettings.asset
+  uploadId: 673517

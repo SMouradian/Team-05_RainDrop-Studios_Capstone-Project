@@ -54,6 +54,7 @@ public class HeadBob : MonoBehaviour
             bobSpeed = 10f;
             bobAmount = 0.05f;
         }
+        
         // Reset timer to avoid bloated values
         if (timer > Mathf.PI * 2)
         {

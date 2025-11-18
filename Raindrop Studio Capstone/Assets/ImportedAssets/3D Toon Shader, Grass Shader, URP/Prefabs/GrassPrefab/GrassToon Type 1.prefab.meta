@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6118d1640ac09974a85dac8c0486c781
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271606
+  packageName: 3D Toon Shader, Grass Shader, URP
+  packageVersion: 1.1
+  assetPath: Assets/3D Toon Shader, Grass Shader, URP/Prefabs/GrassPrefab/GrassToon
+    Type 1.prefab
+  uploadId: 673517

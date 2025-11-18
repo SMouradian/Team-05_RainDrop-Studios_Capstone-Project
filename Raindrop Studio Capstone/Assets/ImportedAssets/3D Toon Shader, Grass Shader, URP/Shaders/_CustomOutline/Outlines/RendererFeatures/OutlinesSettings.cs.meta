@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9e3d42f04a174f849b11ce9cf55e7cbc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271606
+  packageName: 3D Toon Shader, Grass Shader, URP
+  packageVersion: 1.1
+  assetPath: Assets/3D Toon Shader, Grass Shader, URP/Shaders/_CustomOutline/Outlines/RendererFeatures/OutlinesSettings.cs
+  uploadId: 673517

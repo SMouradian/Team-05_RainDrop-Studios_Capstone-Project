@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2dd7cddc47f1f1843883a2573c914d39
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271606
+  packageName: 3D Toon Shader, Grass Shader, URP
+  packageVersion: 1.1
+  assetPath: Assets/3D Toon Shader, Grass Shader, URP/Shaders/_Original/m_ground.mat
+  uploadId: 673517

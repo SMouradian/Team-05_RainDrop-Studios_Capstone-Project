@@ -1,25 +1,28 @@
-using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.Windows.WebCam;
 
 public class CollisionDetection : MonoBehaviour
 {
     public WeaponController wp;
     public GameObject HitParticle;
-    private EnemyHealth EH;
-
+    public int damageAmount = 25;
 
     private void OnTriggerEnter(Collider other)
-{
-    if(other.tag == "Enemy" && wp.IsAttacking)
     {
-        UnityEngine.Debug.Log(other.name);
-        EnemyHealth eh = other.GetComponent<EnemyHealth>();
-        if(eh != null)
+        if (other.CompareTag("Enemy") && wp.IsAttacking)
         {
-            eh.enemyHealth = 0;
+            Debug.Log("Hit Enemy: " + other.name);
+
+            EnemyHealth eh = other.GetComponent<EnemyHealth>();
+            if (eh != null)
+            {
+                eh.TakeDamage(damageAmount);
+
+                if (HitParticle != null)
+                {
+                    Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
+                }
+            }
         }
     }
-}
-
+   
 }

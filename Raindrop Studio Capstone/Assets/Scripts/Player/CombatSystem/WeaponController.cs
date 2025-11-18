@@ -49,6 +49,7 @@ public class WeaponController : MonoBehaviour
         StartCoroutine(ResetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
+        IsAttacking = false;
     }
 
 }

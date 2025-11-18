@@ -8,52 +8,47 @@ public class WeaponController : MonoBehaviour
     public GameObject Katana;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
-    public float AttackHitWindow = 0.3f;
-    private Animator anim;
-    private CollisionDetection hitbox;
+    public bool IsAttacking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     void Start()
     {
-        hitbox = Katana.GetComponent<CollisionDetection>();
-        anim = Katana.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanAttack)
+        if (Input.GetMouseButtonDown(0))
         {
-            KatanaAttack();
+            if (CanAttack)
+            {
+                KatanaAttack();
+            }
         }
     }
 
 
     public void KatanaAttack()
     {
+        IsAttacking = true;
         CanAttack = false;
-        if(anim != null)
-        {
-            anim.SetTrigger("Attack");
-        }
-
-        if (hitbox != null)
-        {
-            StartCoroutine(HitWindow());
-        }
+        Animator anim = Katana.GetComponent<Animator>();
+        anim.SetTrigger("Attack");
         StartCoroutine(ResetAttackCooldown());
     }
 
-    private IEnumerator HitWindow()
-    {
-        hitbox.EnableHitbox();
-        yield return new WaitForSeconds(AttackHitWindow);
-        hitbox.DisableHitbox();
-    }
-    private IEnumerator ResetAttackCooldown()
+    IEnumerator ResetAttackCooldown()
     {
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
     }
+
+    IEnumerator ResetAttackBool()
+    {
+        StartCoroutine(ResetAttackBool());
+        yield return new WaitForSeconds(AttackCooldown);
+        CanAttack = true;
+    }
+
 }

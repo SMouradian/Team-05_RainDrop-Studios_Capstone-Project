@@ -755,6 +755,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   patrolRadius: 5
+  attackDamage: 20
+  attackRange: 2
+  attackAngle: 90
+  attackWindupTime: 0.5
+  animator: {fileID: 0}
+  telegraphRenderer: {fileID: 1846293210730729167}
+  telegraphMaterial: {fileID: 2100000, guid: 567c797edad45bf4784744c0db225bcc, type: 2}
   attackCooldown: 1
   forwardShotForce: 10
   verticalShotForce: 5
@@ -794,7 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e583d75a386415469387686739cad4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  enemyHealth: 100
+  maxHealth: 100
   CameraShake: {fileID: 0}
   PS: {fileID: 0}
   flyForce: 15

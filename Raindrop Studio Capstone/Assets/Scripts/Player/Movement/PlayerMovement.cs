@@ -8,7 +8,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
-    public float sprintSpeed;
+    //public float sprintSpeed;
 
     public float groundDrag;
 
@@ -25,7 +25,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    //public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Ground Check")]
@@ -52,7 +52,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public enum MovementState
     {
         walking,
-        sprinting,
+        //sprinting,
         crouching,
         air
     }
@@ -127,11 +127,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // Mode - Sprinting
-        else if(grounded && Input.GetKey(sprintKey))
-        {
-            state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
-        }
+        //else if(grounded && Input.GetKey(sprintKey))
+        // {
+        //     state = MovementState.sprinting;
+        //     moveSpeed = sprintSpeed;
+        // }
 
         // Mode - Walking
         else if (grounded)

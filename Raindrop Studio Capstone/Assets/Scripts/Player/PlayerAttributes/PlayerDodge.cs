@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerDodge : MonoBehaviour
 {
     [Header("Dodge Settings")]
-    [SerializeField] private KeyCode dodgeKey = KeyCode.LeftAlt;
+    [SerializeField] private KeyCode dodgeKey = KeyCode.LeftShift;
     [SerializeField] private float dodgeDistance = 5f;
     [SerializeField] private float dodgeDuration = 0.25f;
     [SerializeField] private float dodgeCooldown = 1f;
@@ -23,6 +23,7 @@ public class PlayerDodge : MonoBehaviour
     {
         if (Input.GetKeyDown(dodgeKey) && canDodge)
         {
+            Debug.Log("Dodge Detected.");
             float horizontal = Input.GetAxisRaw("Horizontal"); // A/D
             float vertical = Input.GetAxisRaw("Vertical");     // W/S
 

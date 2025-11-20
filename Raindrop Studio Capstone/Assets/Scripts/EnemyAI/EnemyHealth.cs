@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour
     public int enemyHealth = 100;
     public MMFeedbacks CameraShake;
     public ParticleSystem PS;
+    public MMFeedbacks Barfx;
+
+    [Header("Physics / AI")]
     private Rigidbody rb;
     private HostileAI hostileAI;
     private NavMeshAgent navMeshAgent;
@@ -18,6 +21,43 @@ public class EnemyHealth : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         hostileAI = GetComponent<HostileAI>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        //Updates the health bar at start
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+        else
+        {
+            Debug.LogWarning("FloatingHealthBar component not found in children.");
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
+        // Update the health bar
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            Barfx.PlayFeedbacks();
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     // Update is called once per frame

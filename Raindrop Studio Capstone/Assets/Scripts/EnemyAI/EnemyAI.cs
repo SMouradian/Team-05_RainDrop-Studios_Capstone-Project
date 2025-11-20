@@ -23,6 +23,18 @@ public class HostileAI : MonoBehaviour
     private bool hasPatrolPoint;
 
 
+    [Header("Melee Attack Settings")]
+    [SerializeField] private int attackDamage = 20;
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackAngle = 90f;
+    [SerializeField] private float attackWindupTime = 0.50f;
+    [SerializeField] private Animator animator;
+
+    [Header("Attack Telegraph")]
+    [SerializeField] private Renderer telegraphRenderer;
+    [SerializeField] private Material telegraphMaterial;
+    private Material originalMaterial;
+
     [Header("Combat Settings")]
     [SerializeField] private float attackCooldown = 1f;
     private bool isOnAttackCooldown;
@@ -55,8 +67,45 @@ public class HostileAI : MonoBehaviour
         {
             navAgent = GetComponent<NavMeshAgent>();
         }
+
+        if (telegraphRenderer == null)
+        {
+            telegraphRenderer = GetComponentInChildren<Renderer>();
+
+            if (telegraphRenderer != null)
+            {
+                Debug.Log("Auto-assigned telgraphRenderer.");
+            }
+            else
+            {
+                Debug.LogWarning("Telegraph Renderer not assigned and could not be found in children.");
+            }
+        }
+
+        if (telegraphRenderer != null)
+        {
+            originalMaterial = telegraphRenderer.material;
+        }        
     }
 
+    private void EnableTelegraph()
+    {
+        if (telegraphRenderer == null || telegraphMaterial == null)
+        {
+            Debug.LogWarning("Telegraph Renderer not assigned.");
+            return;
+        }
+
+        //Debug.Log("Enabling telegraph effect.");
+        telegraphRenderer.material = telegraphMaterial;
+    }
+
+    private void DisableTelegraph()
+    {
+        if (telegraphRenderer == null || originalMaterial == null) return;
+        //Debug.Log("Disabling telegraph effect.");
+        telegraphRenderer.material = originalMaterial;
+    }
 
     private void Update()
     {
@@ -155,17 +204,56 @@ public class HostileAI : MonoBehaviour
 
         if (playerTransform != null)
         {
-            transform.LookAt(playerTransform);
+            Vector3 lookPos = playerTransform.position;
+            lookPos.y = transform.position.y;
+            transform.LookAt(lookPos);
         }
 
 
         if (!isOnAttackCooldown)
         {
-            FireProjectile();
-            StartCoroutine(AttackCooldownRoutine());
+            StartCoroutine(MeleeAttackRoutine());
         }
     }
 
+    private IEnumerator MeleeAttackRoutine()
+    {
+        isOnAttackCooldown = true;
+
+        EnableTelegraph();
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
+        yield return new WaitForSeconds(attackWindupTime);
+
+        if (playerTransform != null)
+        {
+            Vector3 toPlayer = playerTransform.position - transform.position;
+            float distanceToPlayer = toPlayer.magnitude;
+            
+            if (distanceToPlayer <= attackRange)
+            {
+                float angleToPlayer = Vector3.Angle(transform.forward, toPlayer);
+                if (angleToPlayer <= attackAngle / 2f)
+                {
+                    PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeDamage(attackDamage);
+                        //Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
+                    }
+                }
+            }
+        }
+
+        DisableTelegraph();
+
+        yield return new WaitForSeconds(Mathf.Max(0f, attackCooldown - attackWindupTime));
+        isOnAttackCooldown = false;
+    }
 
     private void UpdateBehaviourState()
     {

@@ -44,16 +44,16 @@ public class HeadBob : MonoBehaviour
             );
         }
         //if the player is sprinting , increase bob speed and amount
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            bobSpeed = 15f;
-            bobAmount = 0.1f;
-        }
-        else
-        {
-            bobSpeed = 10f;
-            bobAmount = 0.05f;
-        }
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     bobSpeed = 15f;
+        //     bobAmount = 0.1f;
+        // }
+        // else
+        // {
+        //     bobSpeed = 10f;
+        //     bobAmount = 0.05f;
+        // }
         
         // Reset timer to avoid bloated values
         if (timer > Mathf.PI * 2)

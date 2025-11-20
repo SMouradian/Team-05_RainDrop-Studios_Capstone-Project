@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,15 +6,69 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
+    private bool isDead = false;
+
+    [Header("Camera Shake")]
+    [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private float shakeDuration = 0.15f;
+    [SerializeField] private float shakeMagnitude = 0.15f;
 
     public void Start()
     {
         currentHealth = maxHealth;
+
+        if (cameraShake == null)
+        {
+            cameraShake = FindObjectOfType<CameraShake>();
+        }
     }
+
+    [Header("Blocking")]
+    [SerializeField] private KeyCode blockKey = KeyCode.Mouse1;
+    [SerializeField] private float blockDamageReduction = 0.5f;
+
+    private bool isBlocking;
+    public bool IsBlocking => isBlocking;
+
+    private void Update()
+    {
+        isBlocking = Input.GetKey(blockKey);
+    }
+
     public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
+        if (isDead) return;
+
+        int finalDamage = damageAmount;
+
+        if (isBlocking)
+        {
+            finalDamage = Mathf.RoundToInt(damageAmount * blockDamageReduction);
+            Debug.Log("Blocked hit. Damage reduced to: " + finalDamage);
+        }
+
+        currentHealth -= finalDamage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("Player took " + finalDamage + " damage. Current health: " + currentHealth);
+        
+        if (cameraShake != null)
+        {
+            if (isBlocking) 
+            {
+                cameraShake.ShakeOnce(shakeDuration / 2, shakeMagnitude / 2);
+            }
+            else
+            {
+                cameraShake.ShakeOnce(shakeDuration, shakeMagnitude);
+            }
+        }
+        
+        if (currentHealth <= 0)
+        {
+            isDead = true;
+            Debug.Log("Player is dead.");
+        }
     }
 
     public void Heal(int healAmount)

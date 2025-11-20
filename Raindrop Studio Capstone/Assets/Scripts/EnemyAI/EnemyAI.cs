@@ -243,7 +243,7 @@ public class HostileAI : MonoBehaviour
                     if (playerHealth != null)
                     {
                         playerHealth.TakeDamage(attackDamage);
-                        Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
+                        //Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
                     }
                 }
             }

@@ -54,7 +54,14 @@ public class PlayerHealth : MonoBehaviour
         
         if (cameraShake != null)
         {
-            cameraShake.ShakeOnce(shakeDuration, shakeMagnitude);
+            if (isBlocking) 
+            {
+                cameraShake.ShakeOnce(shakeDuration / 2, shakeMagnitude / 2);
+            }
+            else
+            {
+                cameraShake.ShakeOnce(shakeDuration, shakeMagnitude);
+            }
         }
         
         if (currentHealth <= 0)

@@ -21935,7 +21935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  sprintSpeed: 7
   groundDrag: 4
   jumpForce: 12
   jumpCooldown: 1
@@ -21943,7 +21942,6 @@ MonoBehaviour:
   crouchSpeed: 2.5
   crouchYScale: 0.5
   jumpKey: 32
-  sprintKey: 304
   crouchKey: 306
   playerHeight: 2
   whatIsGround:
@@ -21970,6 +21968,25 @@ MonoBehaviour:
   shakeMagnitude: 0.15
   blockKey: 324
   blockDamageReduction: 0.5
+--- !u!114 &1623225826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623225821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6565da8e4d42848914c0627277b9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDodge
+  dodgeKey: 304
+  dodgeDistance: 5
+  dodgeDuration: 0.25
+  dodgeCooldown: 1
+  orientation: {fileID: 1231071163}
+  animator: {fileID: 0}
+  movementScript: {fileID: 0}
 --- !u!4 &1629807734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310,

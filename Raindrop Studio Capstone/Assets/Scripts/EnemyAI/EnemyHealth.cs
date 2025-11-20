@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("Effects")]
     public MMFeedbacks CameraShake;
     public ParticleSystem PS;
+    public MMFeedbacks Barfx;
 
     [Header("Physics / AI")]
     private Rigidbody rb;
@@ -48,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
+
         if (currentHealth < 0)
         {
             currentHealth = 0;
@@ -57,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            Barfx.PlayFeedbacks();
         }
 
         if (currentHealth <= 0)

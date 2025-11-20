@@ -96,14 +96,14 @@ public class HostileAI : MonoBehaviour
             return;
         }
 
-        Debug.Log("Enabling telegraph effect.");
+        //Debug.Log("Enabling telegraph effect.");
         telegraphRenderer.material = telegraphMaterial;
     }
 
     private void DisableTelegraph()
     {
         if (telegraphRenderer == null || originalMaterial == null) return;
-        Debug.Log("Disabling telegraph effect.");
+        //Debug.Log("Disabling telegraph effect.");
         telegraphRenderer.material = originalMaterial;
     }
 

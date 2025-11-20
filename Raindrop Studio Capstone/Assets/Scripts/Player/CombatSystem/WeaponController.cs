@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool IsAttacking;
-
+    public int Damage = 20;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,9 +46,9 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator ResetAttackBool()
     {
-        StartCoroutine(ResetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
+        IsAttacking = false;
     }
 
 }

@@ -17,7 +17,7 @@ public class CollisionDetection : MonoBehaviour
         EnemyHealth eh = other.GetComponent<EnemyHealth>();
         if(eh != null)
         {
-            eh.enemyHealth = 0;
+            eh.TakeDamage(wp.Damage);
         }
     }
 }

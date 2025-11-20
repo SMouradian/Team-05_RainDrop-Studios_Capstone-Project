@@ -12,7 +12,7 @@ public class FloatingHealthBar : MonoBehaviour
     {
         if (slider == null)
         {
-            slider = GetComponentInChildren<Slider>();
+            slider = GetComponentInChildren<Slider>() ?? GetComponentInChildren<Slider>();
         }
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -25,7 +25,7 @@ public class FloatingHealthBar : MonoBehaviour
     {
         if (slider == null)
         {
-            Debug.LogWarning("Slider component is not assigned.");
+            Debug.LogWarning($"{name}:Slider component is not assigned.");
             return;
         }
         slider.value = currentHealth / maxHealth;

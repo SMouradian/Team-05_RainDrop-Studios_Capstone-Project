@@ -22,14 +22,35 @@ public class PlayerHealth : MonoBehaviour
             cameraShake = FindObjectOfType<CameraShake>();
         }
     }
+
+    [Header("Blocking")]
+    [SerializeField] private KeyCode blockKey = KeyCode.Mouse1;
+    [SerializeField] private float blockDamageReduction = 0.5f;
+
+    private bool isBlocking;
+    public bool IsBlocking => isBlocking;
+
+    private void Update()
+    {
+        isBlocking = Input.GetKey(blockKey);
+    }
+
     public void TakeDamage(int damageAmount)
     {
         if (isDead) return;
 
-        currentHealth -= damageAmount;
+        int finalDamage = damageAmount;
+
+        if (isBlocking)
+        {
+            finalDamage = Mathf.RoundToInt(damageAmount * blockDamageReduction);
+            Debug.Log("Blocked hit. Damage reduced to: " + finalDamage);
+        }
+
+        currentHealth -= finalDamage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        Debug.Log("Player took " + damageAmount + " damage. Current health: " + currentHealth);
+        Debug.Log("Player took " + finalDamage + " damage. Current health: " + currentHealth);
         
         if (cameraShake != null)
         {
